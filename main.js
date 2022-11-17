@@ -7,10 +7,6 @@ let body = document.querySelector('body');
 //Parent
 let parent = document.querySelector('.row');
 parent.classList.add("parent");
-//Child
-// let child = document.createElement('div');
-// child.className = ('.col-sm-6');
-// child.classList.add("child")
 
 
 //API 
@@ -22,11 +18,11 @@ let getTopNewsStories = async () => {
     for(let i = 0; i < 100; i++){
         let response = await fetch(`https://hacker-news.firebaseio.com/v0/item/${data[i]}.json?print=pretty`);
         let data2 = await response.json();
-        makeCard(data2, i);
+        makeCard(data2);
     }      
 }
-
-function makeCard(data2, i){
+// makeCard Function - Creates a child for parent div
+function makeCard(data){
     let child = document.createElement('div');
     child.className = ('col-sm-6');
     child.classList.add("child")
@@ -48,11 +44,11 @@ function makeCard(data2, i){
     submittedBy.className = "card-text";
 
     //bind data from json into html
-    cardAnchor.innerText =  `${data2.title}`
-    cardAnchor.href = `${data2.url}`
-    score.innerText = `Score: ${data2.score}`
-    comments.innerText = `Comments: ${data2.descendants}`
-    submittedBy.innerText = `Submitted by: ${data2.by}`
+    cardAnchor.innerText =  `${data.title}`
+    cardAnchor.href = `${data.url}`
+    score.innerText = `Score: ${data.score}`
+    comments.innerText = `Comments: ${data.descendants}`
+    submittedBy.innerText = `Submitted by: ${data.by}`
 
     //put html together
     cardTitle.appendChild(cardAnchor);
