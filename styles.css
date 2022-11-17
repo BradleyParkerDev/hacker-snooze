@@ -3,12 +3,13 @@ body {
     display: flex;
     justify-content:center;
     align-items:center;
-
 }
+
 .container{
     width: 768px;
     border: black 2px solid;
 }
+
 .header{
     align-items: flex-start;
     padding: 10px;
@@ -17,16 +18,15 @@ body {
     border: black 2px solid;
     width: 768px;
 }
+
 .sub-header{
     text-align: center;
-
 }
 
 .parent{
     width: 768px;
-
 }
+
 .child{
     border: black 2px solid;
-
 }

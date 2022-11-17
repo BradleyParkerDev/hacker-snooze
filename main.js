@@ -35,38 +35,37 @@ getTopNewsStories();
 function makeCard(data){
     let child = document.createElement('div');
     child.className = ('col-sm-6');
-    child.classList.add("child")
+    child.classList.add("child");
     parent.appendChild(child);
 
     //create html elements
-    let card = document.createElement('div')
+    let card = document.createElement('div');
     //card.className = "card"
-    let cardBody = document.createElement('div')
+    let cardBody = document.createElement('div');
     //cardBody.className = "card-body"
-    let cardTitle = document.createElement('h5')
-    cardTitle.className = "card-title"
+    let cardTitle = document.createElement('h5');
+    cardTitle.className = "card-title";
     let cardAnchor = document.createElement('a');
-    let score = document.createElement('p')
+    let score = document.createElement('p');
     score.className = "card-text";
-    let comments = document.createElement('p')
+    let comments = document.createElement('p');
     comments.className = "card-text";
-    let submittedBy = document.createElement('p')
+    let submittedBy = document.createElement('p');
     submittedBy.className = "card-text";
 
     //bind data from json into html
-    cardAnchor.innerText =  `${data.title}`
-    cardAnchor.href = `${data.url}`
-    score.innerText = `Score: ${data.score}`
-    comments.innerText = `Comments: ${data.descendants}`
-    submittedBy.innerText = `Submitted by: ${data.by}`
+    cardAnchor.innerText =  `${data.title}`;
+    cardAnchor.href = `${data.url}`;
+    score.innerText = `Score: ${data.score}`;
+    comments.innerText = `Comments: ${data.descendants}`;
+    submittedBy.innerText = `Submitted by: ${data.by}`;
 
     //put html together
     cardTitle.appendChild(cardAnchor);
-    cardBody.appendChild(cardTitle)
-    cardBody.appendChild(score)
-    cardBody.appendChild(comments)
-    cardBody.appendChild(submittedBy)
+    cardBody.appendChild(cardTitle);
+    cardBody.appendChild(score);
+    cardBody.appendChild(comments);
+    cardBody.appendChild(submittedBy);
     card.appendChild(cardBody);
-    child.appendChild(card)
-
+    child.appendChild(card);
 }
