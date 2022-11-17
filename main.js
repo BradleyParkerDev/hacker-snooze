@@ -38,30 +38,27 @@ child.appendChild(card)
 
 
 
-for(let i =0; i < 100; i++){
-    let newChild = parent.children[0].cloneNode(true);
-    parent.appendChild(newChild);
-}
+// for(let i =0; i < 100; i++){
+//     let newChild = parent.children[0].cloneNode(true);
+//     parent.appendChild(newChild);
+// }
 
 
 //API 
 //https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty
-let getTopNewsStories = async (num) => {
+let getTopNewsStories = async () => {
     let response = await fetch('https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty');
     let data = await response.json();
-    return data[num]
- 
+    for(let i = 0; i < 100; i++){
+        let response = await fetch(`https://hacker-news.firebaseio.com/v0/item/${data[i]}.json?print=pretty`);
+        let data2 = await response.json();
+        let newChild = parent.children[0].cloneNode(true);
+        parent.appendChild(newChild);
+        console.log(data2);
+        
+
+    }      
 }
-let id = getTopNewsStories(0);
-console.log(id)
 
-// let getOneHundredStories = async () => {
-//     for(let i = 0; i < 5; i++){
-//         let response = await fetch(`https://hacker-news.firebaseio.com/v0/${getTopNewsStories(i)}.json?print=pretty`);
-//         let data = await response.json();
-//         console.log(data);
-//     }   
+getTopNewsStories();
 
-// }
-
-// getOneHundredStories()
