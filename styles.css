@@ -1,0 +1,27 @@
+body {
+    background-color: #e5e5e5;
+   
+
+}
+
+.header{
+    padding: 10px;
+    text-align: center;
+    border: black 2px solid;
+    display: flex;
+    justify-content: center;
+    width: 768px;
+    align-items: center;
+}
+
+.parent{
+    border: black 2px dashed;
+    width: 768px;
+    display: flex;
+    justify-content: center;
+
+}
+.child{
+    border: black 4px solid;
+
+}
