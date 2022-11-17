@@ -9,8 +9,11 @@ let parent = document.querySelector('.row');
 parent.classList.add("parent");
 
 
-//API 
-//https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty
+
+//////////////////////////////////////////////////////
+//API fetch
+//////////////////////////////////////////////////////
+
 let getTopNewsStories = async () => {
     let response = await fetch('https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty');
     let data = await response.json();
@@ -21,7 +24,14 @@ let getTopNewsStories = async () => {
         makeCard(data2);
     }      
 }
-// makeCard Function - Creates a child for parent div
+getTopNewsStories();
+
+
+
+//////////////////////////////////////////////////////
+//makeCard Function - Creates a child for parent div
+//////////////////////////////////////////////////////
+
 function makeCard(data){
     let child = document.createElement('div');
     child.className = ('col-sm-6');
@@ -60,5 +70,3 @@ function makeCard(data){
     child.appendChild(card)
 
 }
-
-getTopNewsStories();
